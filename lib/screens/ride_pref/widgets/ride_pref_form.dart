@@ -5,8 +5,10 @@ import 'package:week_3_blabla_project/model/ride_pref/ride_pref.dart';
 import 'package:week_3_blabla_project/screens/ride_pref/passenger_selection_screen.dart';
 import 'package:week_3_blabla_project/screens/ride_pref/widgets/input_pref.dart';
 import 'package:week_3_blabla_project/theme/theme.dart';
+import 'package:week_3_blabla_project/utils/animations_util.dart';
 import 'package:week_3_blabla_project/utils/date_time_util.dart';
 import 'package:week_3_blabla_project/widgets/display/bla_divider.dart';
+import 'package:week_3_blabla_project/widgets/inputs/location_selection.dart';
 
 /// A Ride Preference Form is a view to select:
 ///   - A departure location
@@ -81,6 +83,26 @@ class _RidePrefFormState extends State<RidePrefForm> {
     }
   }
 
+  void _selectLocation(bool isDeparture) async {
+    final Location? selectedLocation = await Navigator.push(
+      context,
+      AnimationUtils.createBottomToTopRoute(
+        LocationPicker(
+          onLocationSelected: (location) {
+            setState(() {
+              if (isDeparture) {
+                departure = location; // Update departure location
+              } else {
+                arrival = location; // Update arrival location
+              }
+            });
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+
   // Swap departure and arrival locations
   void switchLocations() {
     setState(() {
@@ -90,11 +112,10 @@ class _RidePrefFormState extends State<RidePrefForm> {
     });
   }
 
-  bool isChecked = false;
-
   // ----------------------------------
   // Compute the widgets rendering
   // ----------------------------------
+
   String get departureLabel =>
       departure != null ? departure!.name : "Leaving from";
   String get arrivalLabel => arrival != null ? arrival!.name : "Going to";
@@ -106,6 +127,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
   String get numberLabel => requestedSeats.toString();
 
   bool get switchVisible => arrival != null && departure != null;
+  bool isChecked = false;
 
   // ----------------------------------
   // Build the widgets
@@ -121,14 +143,14 @@ class _RidePrefFormState extends State<RidePrefForm> {
               "Leaving from", // Show departure location or default text
           trailingIcon: Icons.swap_vert,
           onPressed: switchLocations, // Swap locations when clicked
-          onTap: () => (),
+          onTap: () => _selectLocation(true),
         ),
         const BlaDivider(), // Divider between inputs
         InputTile(
           icon: Icons.radio_button_off,
           title: arrival?.name ??
               "Going to", // Show arrival location or default text
-          onTap: () => (), // Select arrival location
+          onTap: () => _selectLocation(false), // Select arrival location
           trailingIcon: null,
         ),
         const BlaDivider(),
