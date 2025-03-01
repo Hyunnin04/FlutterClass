@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:week_3_blabla_project/model/ride/locations.dart';
 import 'package:week_3_blabla_project/model/ride_pref/ride_pref.dart';
+import 'package:week_3_blabla_project/screens/ride/ride_screen.dart';
 import 'package:week_3_blabla_project/screens/ride_pref/passenger_selection_screen.dart';
 import 'package:week_3_blabla_project/screens/ride_pref/widgets/input_pref.dart';
 import 'package:week_3_blabla_project/theme/theme.dart';
@@ -189,6 +190,13 @@ class _RidePrefFormState extends State<RidePrefForm> {
                       arrival: arrival!,
                       departureDate: departureDate,
                       requestedSeats: requestedSeats,
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            RidesScreen(selectedPref: currentPref),
+                      ),
                     );
                   }
                 : null,
