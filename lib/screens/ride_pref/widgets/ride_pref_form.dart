@@ -150,7 +150,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
           icon: Icons.radio_button_off,
           title: arrival?.name ??
               "Going to", // Show arrival location or default text
-          onTap: () => _selectLocation(false), // Select arrival location
+          onTap: () => (), // Select arrival location
           trailingIcon: null,
         ),
         const BlaDivider(),
