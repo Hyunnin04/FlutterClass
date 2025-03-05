@@ -7,7 +7,7 @@ import '../../../utils/date_time_util.dart';
 /// This tile represents an item in the list of past entered ride inputs
 ///
 class RidePrefHistoryTile extends StatelessWidget {
-  final RidePref ridePref;
+  final RidePreference ridePref;
   final VoidCallback? onPressed;
 
   const RidePrefHistoryTile({super.key, required this.ridePref, this.onPressed});

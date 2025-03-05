@@ -5,7 +5,7 @@ import 'package:week_3_blabla_project/model/ride_pref/ride_pref.dart';
 import 'package:week_3_blabla_project/screens/ride/ride_card.dart';
 
 class RidesScreen extends StatelessWidget {
-  final RidePref selectedPref;
+  final RidePreference selectedPref;
   const RidesScreen({super.key, required this.selectedPref});
 
   //
