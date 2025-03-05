@@ -178,5 +178,6 @@ List<Ride> fakeRides = List.generate(50, (index) {
     driver: driver,
     availableSeats: availableSeats,
     pricePerSeat: pricePerSeat,
+    acceptPets: false
   );
 });

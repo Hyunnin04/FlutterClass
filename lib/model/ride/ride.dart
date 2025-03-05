@@ -23,7 +23,9 @@ class Ride {
   final User driver;
 
   final int availableSeats;
-  final double pricePerSeat;
+  final double? pricePerSeat; // i changed this to nullable
+
+  final bool acceptPets;
 
   RideStatus status = RideStatus.created;
 
@@ -37,6 +39,7 @@ class Ride {
     required this.driver,
     required this.availableSeats,
     required this.pricePerSeat,
+    required this.acceptPets,
   });
 
   void addPassenger(User passenger) {
@@ -49,6 +52,6 @@ class Ride {
   String toString() {
     return 'Ride from $departureLocation at ${DateTimeUtils.formatDateTime(departureDate)} '
         'to $arrivalLocation arriving at ${DateTimeUtils.formatDateTime(arrivalDateTime)}, '
-        'Driver: $driver, Seats: $availableSeats, Price: \$${pricePerSeat.toStringAsFixed(2)}';
+        'Driver: $driver, Seats: $availableSeats, Price: \$${pricePerSeat?.toStringAsFixed(2)}'; // add
   }
 }
