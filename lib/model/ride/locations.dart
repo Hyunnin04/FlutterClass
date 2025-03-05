@@ -4,6 +4,7 @@
 enum Country {
   france('France'),
   uk('United Kingdom'),
+  cambodia('Cambodia'), // Add Cambodia
   spain('Spain');
 
   final String name;

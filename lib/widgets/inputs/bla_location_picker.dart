@@ -54,8 +54,11 @@ class _BlaLocationPickerState extends State<BlaLocationPicker> {
     });
   }
 
+// Filter the locations based on the search text
   List<Location> getLocationsFor(String text) {
-    return LocationsService.availableLocations
+    return LocationsService.instance
+        .getLocations()
+        .toList()
         .where((location) =>
             location.name.toUpperCase().contains(text.toUpperCase()))
         .toList();
