@@ -22,7 +22,7 @@ class MockRidesRepository extends RidesRepository {
         verifiedProfile: true,
       ),
       availableSeats: 2,
-      pricePerSeat: 12,
+      pricePerSeat: 8,
       acceptPets: false,
     ),
     Ride(
@@ -40,7 +40,7 @@ class MockRidesRepository extends RidesRepository {
         verifiedProfile: true,
       ),
       availableSeats: 0,
-      pricePerSeat: 12,
+      pricePerSeat: 10,
       acceptPets: false,
     ),
     Ride(
@@ -76,7 +76,7 @@ class MockRidesRepository extends RidesRepository {
         verifiedProfile: true,
       ),
       availableSeats: 2,
-      pricePerSeat: 12,
+      pricePerSeat: 14,
       acceptPets: true,
     ),
     Ride(
@@ -94,7 +94,7 @@ class MockRidesRepository extends RidesRepository {
         verifiedProfile: true,
       ),
       availableSeats: 1,
-      pricePerSeat: 12,
+      pricePerSeat: 16,
       acceptPets: false,
     ),
   ];

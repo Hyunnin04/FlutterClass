@@ -25,7 +25,8 @@ class _RidesScreenState extends State<RidesScreen> {
   RidePreference currentPreference = RidePrefService.instance
       .currentPreference!; // TODO 1 : We should get it from the service
 
-  List<Ride> get matchingRides => RidesService.getRides(currentPreference);
+  List<Ride> get matchingRides =>
+      RidesService.instance.getRides(currentPreference);
 
   void onBackPressed() {
     Navigator.of(context).pop(); //  Back to the previous view
